@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Angkor&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/aniyah-personal-use" rel="stylesheet">
-                
+  <link href="https://fonts.cdnfonts.com/css/questrial" rel="stylesheet">
   <script src="js/scripts.js"></script>
   <style>
     body {
