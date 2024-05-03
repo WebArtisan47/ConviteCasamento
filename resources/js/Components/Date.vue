@@ -13,12 +13,12 @@
                         NOSSO DIA</h1>
                     <img src="/public/Calendario.png" class="Calen" style="" alt="">
                 </v-container>
-                <div class="w-100">
-                    <v-container>
+                <div class="w-100 ">
+                    <v-container class="container d-flex flex-column align-center w-100">
                         <p class="text-justify px-10 aviso">Vocês devem chegar 15
                             minutos antes
                             da cerimônia, ou seja, às 13H45</p>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.81802896099!2d-51.075951925276634!3d0.021897399977899024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8d61e1bd9f5eff91%3A0x41ffaf14e07c26f5!2sCart%C3%B3rio%20Cristiane%20Passos%20-%202%C2%BA%20Of%C3%ADcio%20de%20Notas%20e%20Anexos%20de%20Macap%C3%A1!5e0!3m2!1spt-BR!2sbr!4v1714748342878!5m2!1spt-BR!2sbr" class="w-75" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe style="position: relative; border:0;  z-index: 6;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.81802896099!2d-51.075951925276634!3d0.021897399977899024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8d61e1bd9f5eff91%3A0x41ffaf14e07c26f5!2sCart%C3%B3rio%20Cristiane%20Passos%20-%202%C2%BA%20Of%C3%ADcio%20de%20Notas%20e%20Anexos%20de%20Macap%C3%A1!5e0!3m2!1spt-BR!2sbr!4v1714748342878!5m2!1spt-BR!2sbr" class="w-75" height="250"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </v-container>
 
                     <img src="/public/folhaGMarron.png" class="folha3" alt="">
@@ -45,7 +45,7 @@ export default {
 <style scoped>
 @media only screen and (max-width: 431px) {
     .date{
-        top: 20% !important;
+        top: 10% !important;
     }
     .folha1 {
         width: 30% !important;
@@ -53,6 +53,7 @@ export default {
         position: relative;
         left: -35px !important;
         top: -30px !important;
+        z-index: 6;
     }
 
     .folha2 {
@@ -60,7 +61,7 @@ export default {
         height: 50% !important;
         position: absolute;
         right: -14% !important;
-        bottom: 12% !important;
+        bottom: 1% !important;
         transform: rotate(-10deg) !important;
     }
 
@@ -69,7 +70,7 @@ export default {
         height: 67% !important;
         position: absolute;
         right: -30% !important;
-        bottom: 7% !important;
+        bottom: 1% !important;
         transform: rotate(10deg) !important;
     }
 
@@ -86,29 +87,35 @@ export default {
 
     .container {
         margin: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        z-index: 6;
     }
 
     .Circulo {
         position: absolute;
         right: 5px;
-        top: 30px;
+        top: 10px !important; 
         width: 70% !important;
+        z-index: 6;
     }
 
     .g1 {
         font-family: 'Questrial', sans-serif;
         font-size: 60px !important;
         position: absolute;
-        top: 65px !important;
-        right: 58px !important;
+        top: 38px !important;
+        right: 51px !important;
+        z-index: 6;
     }
 
     .g2 {
         font-family: 'Questrial', sans-serif;
         font-size: 65px !important;
         position: absolute;
-        top: 40px !important;
-        right: 97px !important;
+        top: 13px !important;
+        right: 84px !important;
+        z-index: 6;
     }
 
     .aviso {

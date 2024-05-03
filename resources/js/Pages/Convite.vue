@@ -5,9 +5,9 @@
     <Form :class="Form"/>
     <Fim :class="Fim"/>
     <div style="position: fixed; bottom: 20px; left: 10px;" class="d-flex">
-        <v-btn v-if="page > 2"  @click="PagePrevius()" class="mr-5" size="x-large"
+        <v-btn v-if="page > 2"  @click="PagePrevius()" class="mr-5" 
             icon="mdi-arrow-left"></v-btn>
-        <v-btn v-if="page > 1 && page < 5"  @click="PageNext()" size="x-large"
+        <v-btn v-if="page > 1 && page < 5"  @click="PageNext()"
             icon="mdi-arrow-right"></v-btn>
     </div>
 

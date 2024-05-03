@@ -1,5 +1,5 @@
 <template>
-    <v-layout style="height: 100vh;  overflow: hidden; background-color: #F4F3F1;">
+    <v-layout class="h-100" style="  overflow: hidden; background-color: #F4F3F1;">
         <div class="d-flex w-100">
             <img src="/public/folhaMarron.png" class="folha1" alt="">
             <div style=" width: 100%; position: relative;">
@@ -55,9 +55,9 @@ export default {
         position: absolute;
         word-wrap: none !important;
         font-weight: 900;
-        bottom: 250px !important;
+        bottom: 180px !important;
         text-align: end;
-        right: 90px !important;
+        right: 70px !important;
         margin-left: 0;
         width: 75% !important;
     }
@@ -89,7 +89,7 @@ export default {
     }
 
     .title {
-        font-size: 55px !important;
+        font-size: 30px !important;
         text-transform: uppercase;
         margin: 10px 0 0 24px !important;
         font-weight: 900;
@@ -106,24 +106,27 @@ export default {
     .Circulo {
         position: absolute;
         right: 5px;
-        top: 30px;
+        top: 10px !important; 
         width: 70% !important;
+        z-index: 6;
     }
 
     .g1 {
         font-family: 'Questrial', sans-serif;
         font-size: 60px !important;
         position: absolute;
-        top: 65px !important;
-        right: 58px !important;
+        top: 38px !important;
+        right: 51px !important;
+        z-index: 6;
     }
 
     .g2 {
         font-family: 'Questrial', sans-serif;
         font-size: 65px !important;
         position: absolute;
-        top: 40px !important;
-        right: 97px !important;
+        top: 13px !important;
+        right: 84px !important;
+        z-index: 6;
     }
 
     .aviso {

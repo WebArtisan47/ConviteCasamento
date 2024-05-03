@@ -19,7 +19,7 @@
                 </v-container>
                 <div class="w-100">
                     <v-container>
-                        <v-main class="overflow-y-auto px-5" style="height: 600px;">
+                        <v-main class="overflow-y-auto px-5" style="height: 70vh;">
                             <div v-if="presenca === false && Npresenca === false" class="text-center">
                                 <h1>Irá marcar presença na cerimônia de casamento?</h1>
                                 <v-btn class="mx-5 my-5" color="#ba9d77" @click="confetes()" size="large">SIM</v-btn>
@@ -201,9 +201,9 @@ export default {
     }
 
     .title {
-        font-size: 50px !important;
+        font-size: 20px !important;
         text-transform: uppercase;
-        margin: 15px 0 0 35px !important;
+        margin: 0px 0 0 15px !important;
         font-weight: 900;
     }
 
@@ -218,25 +218,29 @@ export default {
     .Circulo {
         position: absolute;
         right: 5px;
-        top: 30px;
+        top: 10px !important; 
         width: 70% !important;
+        z-index: 6;
     }
 
     .g1 {
         font-family: 'Questrial', sans-serif;
         font-size: 60px !important;
         position: absolute;
-        top: 65px !important;
-        right: 58px !important;
+        top: 38px !important;
+        right: 51px !important;
+        z-index: 6;
     }
 
     .g2 {
         font-family: 'Questrial', sans-serif;
         font-size: 65px !important;
         position: absolute;
-        top: 40px !important;
-        right: 97px !important;
+        top: 13px !important;
+        right: 84px !important;
+        z-index: 6;
     }
+
 
     .aviso {
         font-size: 17px !important;
