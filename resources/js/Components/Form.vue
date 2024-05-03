@@ -203,6 +203,7 @@ export default {
     .title {
         font-size: 20px !important;
         text-transform: uppercase;
+        padding: 0 20px;
         margin: 0px 0 0 15px !important;
         font-weight: 900;
     }

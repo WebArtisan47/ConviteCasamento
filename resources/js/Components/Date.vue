@@ -52,8 +52,7 @@ export default {
         height: 30% !important;
         position: relative;
         left: -35px !important;
-        top: -30px !important;
-        z-index: 6;
+        top: -30px !important;      
     }
 
     .folha2 {
@@ -76,13 +75,14 @@ export default {
 
     .title {
         font-size: 20px !important;
-        margin:10px 0 0 24px !important;
+        margin:10px 0 0 34px !important;
         font-weight: 900;
 
     }
 
     .Calen {
         width: 300px !important;
+        margin-left: 20px;
     }
 
     .container {
