@@ -19,7 +19,7 @@
                 </v-container>
                 <div class="w-100">
                     <v-container>
-                        <v-main class="overflow-y-auto px-5" style="height: 500px;">
+                        <v-main class="overflow-y-auto px-5" style="height: 600px;">
                             <div v-if="presenca === false && Npresenca === false" class="text-center">
                                 <h1>Irá marcar presença na cerimônia de casamento?</h1>
                                 <v-btn class="mx-5 my-5" color="#ba9d77" @click="confetes()" size="large">SIM</v-btn>
