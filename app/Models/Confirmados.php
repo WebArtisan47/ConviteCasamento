@@ -11,6 +11,7 @@ class Confirmados extends Model
 
     protected $fillable = [
         'nome',
-        'quantidade'
+        'quantidade',
+        'restaurante'
     ];
 }

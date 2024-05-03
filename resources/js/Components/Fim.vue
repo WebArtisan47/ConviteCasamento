@@ -12,13 +12,20 @@
                     <h1 class="title" style="">
                         E por último...</h1>
                 </v-container>
-                <div class="w-100">
-                    <v-container>
-                        <p class=" text-justify px-10 aviso">Registrem muitos momentos desse dia especial!
-                            Estaremos ansiosos por muitas fotos!</p>
-                        <p class=" text-justify my-5 px-10 aviso">Grandes coisas fez o Senhor por nós, por isso estamos alegres. <br/> Salmos 126:3</p>
-                        <p class=" text-justify px-10 aviso">Para que todos vejam, e saibam, e considerem, e juntamente entendam que a mão do Senhor fez isso”<br/> Isaías 41:20</p>
-                    </v-container>
+                <div class="w-100 d-flex flex-column align-center">
+
+                    <p class="w-75 text-justify px-10 aviso">Registrem muitos momentos desse dia especial!
+                        Estaremos ansiosos por muitas fotos!</p>
+                    <div class="w-75 ">
+                        <p class="w-100 text-center px-10 aviso1">"Para que todos vejam, e saibam, e considerem, e
+                            juntamente entendam que a mão do Senhor fez isso”<br /></p>
+                        <p class="text-center w-100">Isaías 41:20</p>
+                    </div>
+
+                    <div class="congradulations">
+                        <p class="w-100 px-10">Com carinho, Família Felipe de Oliveira</p>
+                    </div>
+
 
                     <img src="/public/folhaGMarron.png" class="folha3" alt="">
                     <img src="/public/folhaMarron.png" class="folha2" alt="">
@@ -43,6 +50,18 @@ export default {
 
 <style scoped>
 @media only screen and (max-width: 431px) {
+    .congradulations {
+        font-size: 20px;
+        position: absolute;
+        word-wrap: none !important;
+        font-weight: 900;
+        bottom: 250px !important;
+        text-align: end;
+        right: 90px !important;
+        margin-left: 0;
+        width: 75% !important;
+    }
+
     .folha1 {
         width: 30% !important;
         height: 30% !important;
@@ -118,11 +137,13 @@ export default {
         padding-left: 4px !important;
         padding-right: 4px !important;
     }
-    .date{
+
+    .date {
         top: 20% !important;
     }
 }
-.date{
+
+.date {
     top: 10%;
 }
 
@@ -193,6 +214,26 @@ export default {
 .aviso {
     font-size: 30px;
     word-wrap: break-word;
+    margin-left: 40px;
+    width: 50%;
+    font-weight: 700;
+}
+
+.aviso1 {
+    font-size: 20px;
+    word-wrap: break-word;
+    font-weight: 500;
+    width: 50%;
+}
+
+.congradulations {
+    font-size: 20px;
+    word-wrap: break-word;
+    position: absolute;
+    font-weight: 900;
+    bottom: 100px;
+    text-align: end;
+    right: 180px;
     margin-left: 40px;
     width: 50%;
 }

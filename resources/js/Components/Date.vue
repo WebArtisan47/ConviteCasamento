@@ -1,5 +1,5 @@
 <template>
-    <v-layout style="height: 100vh;  overflow: hidden; background-color: #f4f3f1;">
+    <v-layout  style="height: 100vh; background-color: #f4f3f1;">
         <div class="d-flex w-100">
             <img src="/public/folhaMarron.png" class="folha1" alt="">
             <div style=" width: 100%; position: relative;">
@@ -15,9 +15,10 @@
                 </v-container>
                 <div class="w-100">
                     <v-container>
-                        <p class=" text-justify px-10 aviso">Vocês devem chegar 15
+                        <p class="text-justify px-10 aviso">Vocês devem chegar 15
                             minutos antes
                             da cerimônia, ou seja, às 13H45</p>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.81802896099!2d-51.075951925276634!3d0.021897399977899024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8d61e1bd9f5eff91%3A0x41ffaf14e07c26f5!2sCart%C3%B3rio%20Cristiane%20Passos%20-%202%C2%BA%20Of%C3%ADcio%20de%20Notas%20e%20Anexos%20de%20Macap%C3%A1!5e0!3m2!1spt-BR!2sbr!4v1714748342878!5m2!1spt-BR!2sbr" class="w-75" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </v-container>
 
                     <img src="/public/folhaGMarron.png" class="folha3" alt="">
@@ -80,7 +81,7 @@ export default {
     }
 
     .Calen {
-        width: 400px !important;
+        width: 300px !important;
     }
 
     .container {
@@ -111,7 +112,7 @@ export default {
     }
 
     .aviso {
-        font-size: 30px !important;
+        font-size: 19px !important;
         word-wrap: break-word !important;
         margin-left: 0px !important;
         width: 75% !important;
@@ -130,12 +131,12 @@ export default {
 }
 
 .Calen {
-    width: 550px;
+    width: 350px;
 }
 
 .title {
-    font-size: 60px;
-    margin-left: 40px;
+    font-size: 40px;
+    margin-left: 20px;
     font-family: 'Roboto', sans-serif;
     color: #2B4C46;
 }
@@ -190,9 +191,9 @@ export default {
 }
 
 .aviso {
-    font-size: 30px;
+    font-size: 25px;
     word-wrap: break-word;
-    margin-left: 40px;
+    margin-left: 0px;
     width: 50%;
 }
 </style>

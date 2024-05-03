@@ -17,7 +17,8 @@ class CasamentoController extends Controller
         try {
             $create = [
                 'nome' => $request->nome,
-                'quantidade' => $request->qtd 
+                'quantidade' => $request->qtd,
+                'restaurante' => $request->restaurante
             ];
             $confirmados = Confirmados::create($create);
             if($confirmados->id){

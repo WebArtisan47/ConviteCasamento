@@ -12,14 +12,14 @@
                 <p class="g1">G</p>
                 <p class="g2">G</p>
             </div>
-            <div class="w-100 h-100" style="position: absolute; top: 20%;">
+            <div class="w-100 h-100" style="position: absolute; top: 10%;">
                 <v-container class="container">
                     <h1 class="title" style="">
                         MARCAR PRESENÇA</h1>
                 </v-container>
                 <div class="w-100">
                     <v-container>
-                        <v-main class="overflow-y-auto px-5" style="height: 400px;">
+                        <v-main class="overflow-y-auto px-5" style="height: 500px;">
                             <div v-if="presenca === false && Npresenca === false" class="text-center">
                                 <h1>Irá marcar presença na cerimônia de casamento?</h1>
                                 <v-btn class="mx-5 my-5" color="#ba9d77" @click="confetes()" size="large">SIM</v-btn>
@@ -27,11 +27,15 @@
                                     size="large">NÃO</v-btn>
                             </div>
                             <div v-if="presenca === true">
-                                <v-text-field v-model="nome" label="Nome" variant="underlined"></v-text-field>
-                                <v-select v-model="qtd" label="Quantidade de acompanhantes"
-                                    :items="['1', '2', '3', '4', '5']" variant="underlined"></v-select>
-                                <p>Ao final da cerimônia irémos a um restaurante almoçar, fique a vontade caso deseje,
-                                    festejar com a gente!!!</p>
+                                <v-text-field v-model="nome" style="font-weight: 900;" label="Nome" variant="underlined"></v-text-field>
+                                <v-select v-model="qtd" style="font-weight: 900;" label="Quantidade de acompanhantes"
+                                    :items="['1', '2']" variant="underlined"></v-select>
+                                <p>A fim de comemorar esse grande momento, gostaríamos de convidá-los para almoçar com a gente. <br/> Tê-los em nossa companhia será nosso maior presente.  </p>
+                                <br/>
+                                <h1>Recepção por Adesão</h1>
+                                <a href="/Cardapio Final.pdf" class="d-flex align-baseline my-5 w-25" style="text-decoration: none; color: darkgoldenrod; font-size: 25px;" download><v-icon class="mx-2" size="30">mdi-silverware-fork-knife</v-icon> Download Cardápio</a>
+                                <v-select v-model="restaurante" style="font-weight: 900;" label="Confirmar presença no restaurante"
+                                    :items="['Sim', 'Não']" variant="underlined"></v-select>
                                 <div class="my-5 text-end">
                                     <v-btn class="btn" color="#ba9d77" @click="Confirma"
                                         append-icon="mdi-send">CONFIRMAR</v-btn>
@@ -40,7 +44,7 @@
                             </div>
                             <div v-if="Npresenca === true">
                                 <h1>Poxa que pena! <br />
-                                    <t />Sentiremos sua falta, você tem um lugar reservado em nossos corações!
+                                    <t/>Sentiremos sua falta, você tem um lugar reservado em nossos corações!
                                 </h1>
                             </div>
                         </v-main>
@@ -67,6 +71,7 @@ export default {
         presenca: false,
         nome: null,
         qtd: null,
+        restaurante: 'Não',
         toast: 'notError',
         mensagem: null,
         title: null,
@@ -93,7 +98,9 @@ export default {
             if (this.nome !== null && this.qtd !== null) {
                 let data = {
                     nome: this.nome,
-                    qtd: this.qtd
+                    qtd: this.qtd,
+                    restaurante: this.restaurante,
+
                 }
                 axios.post('/api/confirmar-presenca', data).then(response => {
                     if (response.status === 200) {
@@ -180,7 +187,7 @@ export default {
         height: 50% !important;
         position: absolute;
         right: -14% !important;
-        bottom: 12% !important;
+        bottom: 1% !important;
         transform: rotate(-10deg) !important;
     }
 
@@ -189,14 +196,14 @@ export default {
         height: 67% !important;
         position: absolute;
         right: -30% !important;
-        bottom: 7% !important;
+        bottom: 1% !important;
         transform: rotate(10deg) !important;
     }
 
     .title {
-        font-size: 55px !important;
+        font-size: 50px !important;
         text-transform: uppercase;
-        margin: 10px 0 0 24px !important;
+        margin: 15px 0 0 35px !important;
         font-weight: 900;
     }
 
@@ -295,8 +302,8 @@ export default {
     width: 30%;
     height: 40%;
     position: absolute;
-    right: -8%;
-    bottom: 10%;
+    right: -5%;
+    bottom: -3%;
     transform: rotate(-32deg);
     z-index: 2;
 }
@@ -306,7 +313,7 @@ export default {
     height: 60%;
     position: absolute;
     right: -20%;
-    bottom: 3%;
+    bottom: -10%;
     transform: rotate(32deg);
     z-index: 1;
 }
