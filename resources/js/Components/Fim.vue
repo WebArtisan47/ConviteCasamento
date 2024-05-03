@@ -7,7 +7,7 @@
                 <p class="g1">G</p>
                 <p class="g2">G</p>
             </div>
-            <div class="w-100 h-100" style="position: absolute; top: 20%;">
+            <div class="w-100 h-100 date" style="position: absolute;">
                 <v-container class="container">
                     <h1 class="title" style="">
                         E por último...</h1>
@@ -118,6 +118,12 @@ export default {
         padding-left: 4px !important;
         padding-right: 4px !important;
     }
+    .date{
+        top: 20% !important;
+    }
+}
+.date{
+    top: 10%;
 }
 
 .container {
@@ -139,23 +145,23 @@ export default {
     font-family: 'Questrial', sans-serif;
     font-size: 100px;
     position: absolute;
-    top: 120px;
-    right: 128px;
+    top: 80px;
+    right: 78px;
 }
 
 .g2 {
     font-family: 'Questrial', sans-serif;
     font-size: 100px;
     position: absolute;
-    top: 60px;
-    right: 190px;
+    top: 40px;
+    right: 138px;
 }
 
 .Circulo {
     position: absolute;
     right: 5px;
     top: 30px;
-    width: 40%;
+    width: 25%;
 }
 
 .folha1 {
@@ -171,7 +177,8 @@ export default {
     height: 40%;
     position: absolute;
     right: -5%;
-    bottom: 12%;
+    bottom: -3%;
+    transform: rotate(-32deg);
 }
 
 .folha3 {
@@ -179,7 +186,7 @@ export default {
     height: 60%;
     position: absolute;
     right: -20%;
-    bottom: 7%;
+    bottom: -10%;
     transform: rotate(32deg);
 }
 

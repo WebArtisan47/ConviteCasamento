@@ -1,5 +1,10 @@
 <template>
     <v-layout style="height: 100vh;  overflow: hidden; background-color: #F4F3F1;">
+        <span :class="toast" style="">
+            <v-alert closable :title="title" class="w-100 h-100 text-white bg-white" :type="type">
+                <v-alert-text class="text-white">{{ mensagem }}</v-alert-text>
+            </v-alert>
+        </span>
         <div class="d-flex w-100">
             <img src="/public/folhaMarron.png" class="folha1" alt="">
             <div style=" width: 100%; position: relative;">
@@ -14,27 +19,32 @@
                 </v-container>
                 <div class="w-100">
                     <v-container>
-                        <v-main class="overflow-y-auto" style="height: 400px;">
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
-                            <v-text-field label="Label" variant="underlined"></v-text-field>
+                        <v-main class="overflow-y-auto px-5" style="height: 400px;">
+                            <div v-if="presenca === false && Npresenca === false" class="text-center">
+                                <h1>Irá marcar presença na cerimônia de casamento?</h1>
+                                <v-btn class="mx-5 my-5" color="#ba9d77" @click="confetes()" size="large">SIM</v-btn>
+                                <v-btn class="mx-5 my-5" color="#7d6b39" @click="Npresenca = true"
+                                    size="large">NÃO</v-btn>
+                            </div>
+                            <div v-if="presenca === true">
+                                <v-text-field v-model="nome" label="Nome" variant="underlined"></v-text-field>
+                                <v-select v-model="qtd" label="Quantidade de acompanhantes"
+                                    :items="['1', '2', '3', '4', '5']" variant="underlined"></v-select>
+                                <p>Ao final da cerimônia irémos a um restaurante almoçar, fique a vontade caso deseje,
+                                    festejar com a gente!!!</p>
+                                <div class="my-5 text-end">
+                                    <v-btn class="btn" color="#ba9d77" @click="Confirma"
+                                        append-icon="mdi-send">CONFIRMAR</v-btn>
+                                </div>
+
+                            </div>
+                            <div v-if="Npresenca === true">
+                                <h1>Poxa que pena! <br />
+                                    <t />Sentiremos sua falta, você tem um lugar reservado em nossos corações!
+                                </h1>
+                            </div>
                         </v-main>
-                       
+
                     </v-container>
 
                     <img src="/public/folhaGMarron.png" class="folha3" alt="">
@@ -49,16 +59,113 @@
 </template>
 
 <script>
-
+import axios from 'axios';
+import confetti from 'canvas-confetti';
 export default {
-    data: () => {
+    data: () => ({
+        Npresenca: false,
+        presenca: false,
+        nome: null,
+        qtd: null,
+        toast: 'notError',
+        mensagem: null,
+        title: null,
+        type: null,
+    }),
+    methods: {
+        confetes() {
+            this.presenca = true
+            let params = {
+                particleCount: 500, // Quantidade de confetes
+                spread: 90, // O quanto eles se espalham
+                startVelocity: 70, // Velocidade inicial
+                origin: { x: 0, y: 0.5 }, // Posição inicial na tela
+                angle: 45 // Ângulo em que os confetes serão lançados
+            };
+            confetti(params);
 
+            // Joga confetes da direita para a esquerda
+            params.origin.x = 1;
+            params.angle = 135;
+            confetti(params);
+        },
+        Confirma() {
+            if (this.nome !== null && this.qtd !== null) {
+                let data = {
+                    nome: this.nome,
+                    qtd: this.qtd
+                }
+                axios.post('/api/confirmar-presenca', data).then(response => {
+                    if (response.status === 200) {
+                        this.mensagem = "Presença confirmada. Te esperamos lá!"
+                        this.title = "MARCAR PRESENÇA"
+                        this.type = "success"
+                        this.toast = 'cardtoast';
+
+                    }
+                }).catch(error => {
+                    this.title = "MARCAR PRESENÇA"
+                    this.mensagem = 'Ops tivemos um erro, tente novamente!';
+                    this.type = "error"
+                    this.toast = 'cardtoast';
+                    setTimeout(() => {
+                    this.title = "MARCAR PRESENÇA"
+                    this.mensagem = null;
+                    this.type = null
+                    this.toast = 'notError';
+                }, 5000)
+                })
+            } else {
+                this.title = "MARCAR PRESENÇA"
+                this.mensagem = 'Preencha todos os dados antes de enviar!';
+                this.type = "error"
+                this.toast = 'cardtoast';
+                setTimeout(() => {
+                    this.title = "MARCAR PRESENÇA"
+                    this.mensagem = null;
+                    this.type = null
+                    this.toast = 'notError';
+                }, 5000)
+            }
+        }
     }
 }
 
 </script>
 
 <style scoped>
+.notError {
+    display: none;
+}
+
+.cardtoast {
+    position: fixed;
+    z-index: 30;
+    width: 350px;
+    right: -800px;
+    animation: toast 8s ease-in;
+}
+
+@keyframes toast {
+    10% {
+        opacity: 0.5;
+        right: 0px;
+    }
+
+    11% {
+        opacity: 1;
+    }
+
+    99% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+        right: 0;
+    }
+}
+
 @media only screen and (max-width: 431px) {
     .folha1 {
         width: 30% !important;
@@ -137,12 +244,13 @@ export default {
     }
 }
 
+
 .container {
     width: 75%;
 }
 
 .Calen {
-    width: 650px;
+    width: 550px;
 }
 
 .title {
@@ -156,23 +264,23 @@ export default {
     font-family: 'Questrial', sans-serif;
     font-size: 100px;
     position: absolute;
-    top: 120px;
-    right: 128px;
+    top: 80px;
+    right: 78px;
 }
 
 .g2 {
     font-family: 'Questrial', sans-serif;
     font-size: 100px;
     position: absolute;
-    top: 60px;
-    right: 190px;
+    top: 40px;
+    right: 138px;
 }
 
 .Circulo {
     position: absolute;
     right: 5px;
     top: 30px;
-    width: 40%;
+    width: 25%;
 }
 
 .folha1 {
@@ -187,8 +295,10 @@ export default {
     width: 30%;
     height: 40%;
     position: absolute;
-    right: -5%;
-    bottom: 12%;
+    right: -8%;
+    bottom: 10%;
+    transform: rotate(-32deg);
+    z-index: 2;
 }
 
 .folha3 {
@@ -196,8 +306,14 @@ export default {
     height: 60%;
     position: absolute;
     right: -20%;
-    bottom: 7%;
+    bottom: 3%;
     transform: rotate(32deg);
+    z-index: 1;
+}
+
+.btn {
+    position: relative;
+    z-index: 6;
 }
 
 .aviso {
