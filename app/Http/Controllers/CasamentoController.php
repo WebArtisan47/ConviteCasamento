@@ -28,7 +28,7 @@ class CasamentoController extends Controller
             }else{
                 throw new Exception("Erro ao tentar confirmar");
             }
-        } catch (\Throwable $th) {
+        } catch (\Exception $th) {
             return response()->json([
                 "mensagem" => $th->getMessage()
             ],500);
