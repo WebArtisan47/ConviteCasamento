@@ -16,3 +16,4 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [CasamentoController::class, 'ConviteCasamento']);
+Route::get('/confirmados', [CasamentoController::class, 'Confirmados']);

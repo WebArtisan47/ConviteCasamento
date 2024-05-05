@@ -29,7 +29,7 @@
                             <div v-if="presenca === true">
                                 <v-text-field v-model="nome" style="font-weight: 900;" label="Nome" variant="underlined"></v-text-field>
                                 <v-select v-model="qtd" style="font-weight: 900;" label="Quantidade de acompanhantes"
-                                    :items="['1', '2']" variant="underlined"></v-select>
+                                    :items="['Nenhum','1', '2']" variant="underlined"></v-select>
                                 <p>A fim de comemorar esse grande momento, gostaríamos de convidá-los para almoçar com a gente. <br/> Tê-los em nossa companhia será nosso maior presente.  </p>
                                 <br/>
                                 <h1>Recepção por Adesão</h1>
@@ -98,7 +98,7 @@ export default {
             if (this.nome !== null && this.qtd !== null) {
                 let data = {
                     nome: this.nome,
-                    qtd: this.qtd,
+                    qtd: this.qtd  === 'Nenhum' ? 0 : this.qtd,
                     restaurante: this.restaurante,
 
                 }

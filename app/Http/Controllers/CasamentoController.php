@@ -12,6 +12,11 @@ class CasamentoController extends Controller
     public function ConviteCasamento(){
         return Inertia::render('Convite');
     }
+    public function Confirmados(){
+        $confirmados = Confirmados::all();
+        return Inertia::render('Confirmados', ['confirmados' => $confirmados]);
+    }
+
 
     public function confirmarPresenca(Request $request){
         try {
